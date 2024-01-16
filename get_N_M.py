@@ -21,6 +21,7 @@ if len(sys.argv) != Nargs:
     print("Number of arguments is incorrect!")
     exit("usage: python get_N_M.py input_file")
 
-nx,ny  = get_n_m_fromfile(sys.argv[1])
-print("N = ", nx)
-print("M = ", ny)
+N,M  = get_n_m_fromfile(sys.argv[1])
+#print("N = ", nx)
+#iprint("M = ", ny)
+print(f"{N}_{M}")
