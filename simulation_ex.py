@@ -9,8 +9,6 @@ def rgb2gray(rgb):
     return np.dot(rgb[...,:3], [0.2989, 0.5870, 0.1140])
 
 
-
-
 c2= 0.49 # meter**2/second
 a=1  # meters 
 dt=0.5# seconds
