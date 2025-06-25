@@ -62,9 +62,9 @@ start = time.time()
 
 print("Starting a very time consuming simulations...")
 fin=sys.argv[1]
-N=np.int(sys.argv[2])
-M=np.int(sys.argv[3])
-Niter=np.int(sys.argv[4])
+N=int(sys.argv[2])
+M=int(sys.argv[3])
+Niter=int(sys.argv[4])
 fout=sys.argv[5]
 
 print("Parameters of the runs are:")

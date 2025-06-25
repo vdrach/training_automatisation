@@ -1,20 +1,16 @@
 #!/bin/bash
 
-#SBATCH -J jobname              # Job name
+#SBATCH -J img_processing            # Job name
 #SBATCH -o job.%j.out         # Name of stdout output file (%j expands to jobId)
-#SBATCH -p normal             # To use the normal queue. There is also a queue called test
+#SBATCH -p cpu_shared             # To use the normal queue. There is also a queue called test
 #SBATCH -N 1                  # Total number of nodes requested
 #SBATCH -n 1                  # Total number of mpi tasks requested
 #SBATCH -t 00:05:00           # Run time (hh:mm:ss) - here 5 minutes
 
 
 
-#eg: 
-module purge
-module load  python/3.9.12-nxrltcs  py-numpy/1.19.5-4wflrs2  py-packaging/21.3-hyqp3am py-matplotlib/3.5.3-k3xfyzm
-
-#load your virtual environement
-# eg: conda activate my_python_env
+ROOTDIR=/users/vdrach/training_automatisation
+source ${ROOTDIR}/solutions/load_modules.sh
 
 # For convenience, You can run a few commands. 
 # It helps de debug. 
@@ -30,10 +26,10 @@ ls -ltr
 # then run your applciation. Two examples below. First using python, then using R.
 Niter=10
 
-EXE=/home/vdrach/HPC_training/training_automatisation/simulation_ex.py
+EXE=${ROOTDIR}/simulation_ex.py
 
 
-SRCFILE=/home/vdrach/HPC_training/training_automatisation/data_preprocessed/1_796_1024.jpg
+SRCFILE=${ROOTDIR}/data_preprocessed/1_796_1024.jpg
 
 
 TMP=`basename  ${SRCFILE} .jpg`

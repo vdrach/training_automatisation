@@ -1,13 +1,14 @@
-SRCDIR=/home/${USER}/HPC_training/training_automatisation/data
-OUTDIR=/home/${USER}/HPC_training/training_automatisation/data_preprocessed
+SRCDIR=${HOME}/training_automatisation
+DATADIR=${HOME}/training_automatisation/data
+OUTDIR=${HOME}/training_automatisation/data_preprocessed
 
 mkdir -p ${OUTDIR}
 
 COUNTER=0
-for f  in ${SRCDIR}/*.jpg
+for f  in ${DATADIR}/*.jpg
     do
     COUNTER=$(( COUNTER + 1 ))
-    STR=`python /home/${USER}/HPC_training/training_automatisation/get_N_M.py "${f}"` 
+    STR=`python ${SRCDIR}/solutions/get_N_M.py "${f}"` 
     
     cp -v "$f"  ${OUTDIR}/${COUNTER}_${STR}.jpg
 

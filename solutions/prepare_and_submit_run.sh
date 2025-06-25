@@ -1,6 +1,7 @@
 #!/bin/bash
-SRCDIR=./data_preprocessed
-RUNDIR=./rundir
+ROOTDIR=/users/vdrach/training_automatisation
+SRCDIR=${ROOTDIR}/data_preprocessed
+RUNDIR=${ROOTDIR}/rundir
 HOMEDIR=$(pwd)
 
 # loop over all SRC
@@ -16,7 +17,7 @@ for f in ${SRCDIR}/?_*.jpg # to process only the first 10 images... and let the 
         mkdir ${RUNDIR}/run${id}
 
         # generate sbatch file
-        sed "s/jobname/job${id}/g" job_template   | sed "s/1_1024_429.jpg/${f}/g" > ${RUNDIR}/run${id}/job_${id}
+        sed "s/jobname/job${id}/g" job_template   | sed "s/1_796_1024.jpg/${f}/g" > ${RUNDIR}/run${id}/job_${id}
 
         #submit 
         cd ${RUNDIR}/run${id}
